@@ -132,9 +132,9 @@ __global__ void reduce5(int *g_idata, int* g_odata){
     
     __syncthreads();
 
-    if(blockSize >= 512){ if(tid < 256){sdata[tid] += sdata[tid + 256]};__syncthreads();}
-    if(blockSize >= 256){ if(tid < 128){sdata[tid] += sdata[tid + 128]};__syncthreads();}
-    if(blockSize >= 128){ if(tid <  64){sdata[tid] += sdata[tid +  64]};__syncthreads();}
+    if(blockSize >= 512){ if(tid < 256){sdata[tid] += sdata[tid + 256];}__syncthreads();}
+    if(blockSize >= 256){ if(tid < 128){sdata[tid] += sdata[tid + 128];}__syncthreads();}
+    if(blockSize >= 128){ if(tid <  64){sdata[tid] += sdata[tid +  64];}__syncthreads();}
 
     if(tid < 32){
         if(blockSize >= 64) sdata[tid] += sdata[tid + 32];
